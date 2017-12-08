@@ -2,9 +2,10 @@
 
 
 ## Current Notes
-Split each rough hash component into 9 chunks 27 characters long -> Convert each chunk to decimal -> store decimal chunks in database.
+Must have FFmpeg and MySQL installed.
 
-Query for hamming distance SELECT BITE_COUNT(QueryChunkDecimal1 ^ HashChunkDecimal1) + BITE_COUNT(QueryChunkDecimal2 ^ HashChunkDecimal2) ...
+From the project directory, run `./createfingerprintdb.sh` and follow __all__ directions. This will generate a database and user, create the config file and provide the command that must be entered to create the login profile.
 
+The database can then be added to and queried with the included scripts.
 
-Useful Link about [speed](https://stackoverflow.com/questions/9606492/hamming-distance-similarity-searches-in-a-database)
+Current experiments store only the first hash of the `bagofwords` rough hashes and then use [hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) to search for matches.
