@@ -22,7 +22,7 @@ if [ -f "${DBCONFIG}" ] ; then
 fi
 
 #get input for database creation
-echo "This script will create the database used by mm on your localhost."
+echo "This script will create the database used for fingerprinting on your localhost."
 echo "Please enter root password for mysql:"
 mysql_config_editor set --login-path=tempsetting --host=localhost --user=root --password
 echo "Please enter name of DB to be created"
@@ -41,7 +41,7 @@ mysql_config_editor remove --login-path=tempsetting
 
 
 #get input for user creation
-echo "This will create a user on the mm database"
+echo "This will create a user on the fingerprint database"
 if [ -z "$DB_NAME" ] ; then
 echo "Please enter the name of target database"
 read -r DB_NAME
@@ -68,14 +68,10 @@ if [ "$USER_HOST" = "localhost" ] ; then
 else
     db_host=$(ifconfig |grep inet | tail -n1 | cut -d ' ' -f2)
 fi
-echo -e "\033[1;103;95mTo finalize, run the following command on your user machine. NOTE You may wish to confirm your host IP address first!\033[0m"
+echo -e "\033[1;103;95mTo finalize, run the following command on your user machine. Corresponding settings have been added to the DB config file\033[0m"
 echo -e "\033[1;103;95mmysql_config_editor set --login-path="$USER_NAME"_config --host="$db_host" --user="$USER_NAME" --password\033[0m"
 echo -e "\033[1;103;95mFollowed by the user password: "$USER_PASSWORD"\033[0m"
 
-echo ""
-echo -e "\033[1;103;95mThen, use the following settings in mmconfig\033[0m"
-echo -e "\033[1;103;95mDatabase Profile is: "$USER_NAME"_config\033[0m"
-echo -e "\033[1;103;95mDatabase Name is: "$DB_NAME"\033[0m"
 #remove root config
 mysql_config_editor remove --login-path=tempsetting
 
