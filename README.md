@@ -1,6 +1,6 @@
 # fingerprinting
 
-For instructions, check out this [cool blog post](https://privatezero.github.io/weaverblog/2017/12/12/Return-to-perceptual-hashing.html)!
+For instructions, check out this [blog post](https://privatezero.github.io/weaverblog/2017/12/12/Return-to-perceptual-hashing.html)!
 
 ## Current Notes
 Must have FFmpeg and MySQL installed.
