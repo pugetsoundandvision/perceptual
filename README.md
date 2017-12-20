@@ -10,8 +10,8 @@ The database can then be added to and queried with the included scripts.
 
 Current experiments store only the first hash of the `bagofwords` rough hashes and then use [hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) to search for matches.
 
-## In the event of an error   
+## Errors
 
-If you receive the error `Column count of mysql.user is wrong.`:  
+Default Mac or Homebrew installations may cause an error. If you receive the error `Column count of mysql.user is wrong.`:  
 
 It means you need to update MySQL. Run `mysql_upgrade -u root -p` and re-open your window if necessary. MySQL may need to be manually restarted as a system service.  
